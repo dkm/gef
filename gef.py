@@ -1623,13 +1623,13 @@ class ARM(Architecture):
 
     all_registers = ["$r0", "$r1", "$r2", "$r3", "$r4", "$r5", "$r6",
                      "$r7", "$r8", "$r9", "$r10", "$r11", "$r12", "$sp",
-                     "$lr", "$pc", "$cpsr",]
+                     "$lr", "$pc", "$xPSR", "$fpscr"]
 
     # http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0041c/Caccegih.html
     # return b"\x00\x00\xa0\xe1" # mov r0,r0
     nop_insn = b"\x01\x10\xa0\xe1" # mov r1,r1
     return_register = "$r0"
-    flag_register = "$cpsr"
+    flag_register = "$xPSR"
     flags_table = {
         31: "negative",
         30: "zero",
